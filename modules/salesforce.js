@@ -231,6 +231,4 @@ let getRecommendation = (response, theUserDetails) =>{
 */
 login();
 
-
-
-//exports.getServiceContract = getServiceContract;
+exports.createRecord = createRecord;
