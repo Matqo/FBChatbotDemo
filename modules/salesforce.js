@@ -31,17 +31,20 @@ let createRecord = (params, object) => {
 
         let theObject = nforce.createSObject(object);
         theObject.set('Description__c', `Product dropped, speaker malfunctioning`);
-        theObject.set('Contact__c', '003f4000002ML0v');
-        theObject.set('RMA_Status__c', 'In-Process');
-        //theObject.set('Under_Warranty__c', 'true');
-        
+        //theObject.set('Contact__c', '003f4000002ML0v');
+        //theObject.set('RMA_Status__c', 'In-Process');
+        //theObject.set('Under_Warranty__c', true);
+        console.log('before insert');
         org.insert({ sobject: theObject }, function(err, resp){
+            console.log('inside insert');
             if(!err && resp.records){
+                console.log('inside if');
                 var theReturnRecord = resp.records[0];
                 console.log('Record created: ', theReturnRecord);
                 resolve(theReturnRecord);
             }
             else{
+                console.log('inside else');
                 reject(err);
             }
         });
