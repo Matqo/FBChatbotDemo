@@ -31,7 +31,7 @@ let createRecord = (params, object) => {
 
         let theObject = nforce.createSObject(object);
         theObject.set('Description__c', `Product dropped, speaker malfunctioning`);
-        theObject.set('ContactId', '003f4000002ML0v');
+        theObject.set('Contact__c', '003f4000002ML0v');
         theObject.set('RMA_Status__c', 'In-Process');
         theObject.set('Under_Warranty__c', true);
         
