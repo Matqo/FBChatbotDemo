@@ -30,8 +30,11 @@ let createRecord = (params, object) => {
     return new Promise((resolve,reject) => {
 
         let theObject = nforce.createSObject(object);
-        theObject.set('Description__c', `Bot TEST`);
-
+        theObject.set('Description__c', `Product dropped, speaker malfunctioning`);
+        theObject.set('ContactId', '003f4000002ML0v');
+        theObject.set('RMA_Status__c', 'In-Process');
+        theObject.set('Under_Warranty__c', true);
+        
         org.insert({ sobject: theObject }, function(err, resp){
             if(!err && resp.records){
                 var theReturnRecord = resp.records[0];
