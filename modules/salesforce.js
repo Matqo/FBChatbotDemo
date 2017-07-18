@@ -37,6 +37,8 @@ let createRecord = (params, object) => {
         console.log('before insert');
         org.insert({ sobject: theObject }, function(err, resp){
             console.log('inside insert');
+            console.log('resp: ', resp);
+            console.log('err: ', err);
             if(!err && resp.records){
                 console.log('inside if');
                 var theReturnRecord = resp.records[0];
