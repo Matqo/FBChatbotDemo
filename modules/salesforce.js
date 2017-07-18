@@ -14,13 +14,7 @@ let org = nforce.createConnection({
     mode: 'single',
     autoRefresh: true
 });
-/*
-let theCase = nforce.createSObject('Case');
-theCase.set('Subject', `Réclamation-Campanille-Duplicata`);
-theCase.set('RecordTypeId', `0126A000000r9Lv`);
-theCase.set('ContactId', `0036A000009H4qR`);
-theCase.set('Origin', `Facebook`);
-*/
+
 let login = () => {
     org.authenticate({username: SF_USER_NAME, password: SF_PASSWORD}, err => {
         if (err) {
@@ -32,28 +26,25 @@ let login = () => {
     });
 };
 
-/*
-let createLead = (params) => {
+let createRecord = (params, object) => {
     return new Promise((resolve,reject) => {
 
-        let theLead = nforce.createSObject('Lead');
-        theLead.set('Company', `Facebook Customer`);
-        theLead.set('Status', 'New');
-        theLead.set('FirstName', `Test`);
-        theLead.set('LastName', `TestLast`);
+        let theObject = nforce.createSObject(object);
+        theObject.set('Description__c', `Bot TEST`);
 
-        org.insert({ sobject: theLead }, function(err, resp){
-            if(!err){
-                console.log('It worked!: ', theLead);
-                resolve(theLead);
+        org.insert({ sobject: theObject }, function(err, resp){
+            if(!err && resp.records){
+                var theReturnRecord = resp.records[0];
+                console.log('Record created: ', theReturnRecord);
+                resolve(theReturnRecord);
             }
             else{
-                reject("An error occurred while creating a lead");
+                reject(err);
             }
         });
     });
 };
-
+/*
 let updateLead = (params, sender) => {
     console.log('how is this getting called');
     if(params){

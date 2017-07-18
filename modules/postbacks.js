@@ -3,45 +3,6 @@
 let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
     formatter = require('./formatter');
-/*
-exports.confirm_visit = (sender, values) => {
-	console.log('values: ', values);
-    messenger.getUserInfo(sender).then(response => {
-        messenger.setWeather(values).then(weatherResponse => {
-            messenger.send(formatter.question4(response), sender);
-        });
-    });
-};
-exports.addToCart = (sender, values) => {
-    console.log('values: ', values);
-    messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `OK, thank you. I added that to your cart.`}, sender);
-        setTimeout(function(){
-            messenger.send({text: `Can I help you any further today?`}, sender);
-        },500);
-    });
-};
-
-exports.blank = (sender, values) => {
-    console.log('inside blank');
-};
-
-exports.lastQuestion = (sender, values) => {
-    console.log('inside lastQuestion');
-    messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.question9(response), sender);
-    });
-};
-
-exports.findPin = (sender, values) => {
-    console.log('inside findPin');
-    messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.picture8(response), sender);
-        setTimeout(function(){
-            messenger.send(formatter.question8(response), sender);
-        }, 750);
-    });
-};*/
 
 exports.q1 = (sender, values) => {
     console.log('q1');
@@ -66,6 +27,10 @@ exports.q3 = (sender, values) => {
         messenger.send({text: `Great. Your new Frame should arrive in 5-7 business days. `}, sender);
         setTimeout(function(){
             //Salesforce update records
+            salesforce.createRecord(response, 'RMA__c').then(recordResult => {
+                //messenger.send(formatter.formatRecords(recResult), sender);
+            });
+            messenger.send({text: `I've also sent an email confirmation with the return shipping label to cara@gmail.com. If there's anything else I can help you with please let me know.`}, sender);
             messenger.send({text: `Salesforce update records`}, sender);
             //messenger.send(formatter.question4(response), sender);
         },1000);
