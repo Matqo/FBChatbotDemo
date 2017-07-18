@@ -8,90 +8,83 @@ let moment = require("moment"),
 exports.question1 = response => {
     console.log('question1');
     return {
-        "text":"Bonjour " + response.first_name + " et bienvenue chez Yves Rocher. Que puis-je faire pour vous ?",
-        "quick_replies":[
-          {
-            "content_type":"text",
-            "title":"Découvrir nos produits",
-            "payload":"q1,Découvrir nos produits"
-          },
-          {
-            "content_type":"text",
-            "title":"Découvrir nos soins",
-            "payload":"q1,Découvrir nos soins"
-          },
-          {
-            "content_type":"text",
-            "title":"Découvrir la fondation Yves Rocher",
-            "payload":"q1,Découvrir la fondation Yves Rocher"
-          },
-          {
-            "content_type":"text",
-            "title":"Trouver votre magasin le plus proche",
-            "payload":"q1,Trouver votre magasin le plus proche"
-          }
-        ]
+        "attachment": {
+            "type":"template",
+            "payload": {
+                "template_type":"button",
+                "text":"Can I get the replacement and return process started for you? It will take a few minutes.",
+                "buttons":[
+                      {
+                            "type":"postback",
+                            "title":"Yes",
+                            "payload":"q1,Yes"
+                      },
+                      {
+                            "type":"postback",
+                            "title":"No",
+                            "payload":"q1,No"
+                      }
+                ]
+            }
+        }
     }
 };
 
 exports.question2 = response => {
     console.log('question2');
     return {
-        "text":"Très bien ! Dites-moi ce qui vous intéresse.",
-        "quick_replies":[
-          {
-            "content_type":"text",
-            "title":"Soin visage",
-            "payload":"q2,Soin visage"
-          },
-          {
-            "content_type":"text",
-            "title":"Maquillage",
-            "payload":"q2,Maquillage"
-          },
-          {
-            "content_type":"text",
-            "title":"Parfum",
-            "payload":"q2,Parfum"
-          },
-          {
-            "content_type":"text",
-            "title":"Corps & douche",
-            "payload":"q2,Corps & douche"
-          },
-          {
-            "content_type":"text",
-            "title":"Cheveux",
-            "payload":"q2,Cheveux"
-          }
-        ]
+        "attachment": {
+            "type":"template",
+            "payload": {
+                "template_type":"button",
+                "text":"Great. First I'll need to confirm your shipping address. Confirm Address: 332 Pine St, Berkeley, CA 94703",
+                "buttons":[
+                      {
+                            "type":"postback",
+                            "title":"Confirm",
+                            "payload":"q2,Confirm"
+                      },
+                      {
+                            "type":"postback",
+                            "title":"Edit",
+                            "payload":"q2,Edit"
+                      }
+                ]
+            }
+        }
     }
 };
 
 exports.question3 = response => {
     console.log('question3');
     return {
-        "text":"What kind of maintenance contract would you like to purchase?",
-        "quick_replies":[
-          {
-            "content_type":"text",
-            "title":"Full 247 Maintenance",
-            "payload":"q3,Full 247 Maintenance"
-          },
-          {
-            "content_type":"text",
-            "title":"3 Times Per Year Maintenance",
-            "payload":"q3,3 Times Per Year Maintenance"
-          },
-          {
-            "content_type":"text",
-            "title":"Custom Maintenance",
-            "payload":"q3,Custom Maintenance"
-          }
-        ]
+        "attachment": {
+            "type":"template",
+            "payload": {
+                "template_type":"button",
+                "text":"How fast do you need the new Frame?",
+                "buttons":[
+                      {
+                            "type":"postback",
+                            "title":"Standard (Free)",
+                            "payload":"q3,Standard (Free)"
+                      },
+                      {
+                            "type":"postback",
+                            "title":"Express ($9.99)",
+                            "payload":"q3,Express ($9.99)"
+                      },
+                      {
+                            "type":"postback",
+                            "title":"Next Day ($19.99)",
+                            "payload":"q3,Next Day ($19.99)"
+                      }
+                ]
+            }
+        }
     }
 };
-
+/*
 exports.picture4 = response => {
     console.log('question4');
     let elements = [];
@@ -571,7 +564,7 @@ exports.question4 = response => {
         ]
     }
 };
-*/
+
 
 exports.formatServiceContract = response => {
     console.log('In formatServiceContract: ', response);
@@ -592,3 +585,4 @@ exports.formatServiceContract = response => {
         }
     };
 };
+*/

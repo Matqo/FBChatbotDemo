@@ -3,7 +3,6 @@
 let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
     formatter = require('./formatter');
-    //123 test push
 
 exports.test = (sender) => {
     console.log('test');
@@ -15,10 +14,13 @@ exports.test = (sender) => {
 exports.start = (sender) => {
     console.log('start');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Hi, i'm your personal ARVAL BOT, how can i help you today?`}, sender);
+        messenger.send({text: `Hi I'm FrameFixer. I ran some diagnostics and unfortunately it looks like you'll need a replacement Frame.`}, sender);
+        setTimeout(function(){
+            messenger.send(formatter.question1(), sender);
+        }, 1000);
     });
 };
-
+/*
 exports.next1 = (sender) => {
     console.log('next1');
     messenger.getUserInfo(sender).then(response => {
@@ -48,3 +50,4 @@ exports.next3 = (sender) => {
         messenger.send(formatter.formatLiveAgent(), sender);
     });
 };
+*/

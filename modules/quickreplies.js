@@ -3,7 +3,7 @@
 let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
     formatter = require('./formatter');
-
+/*
 exports.q1 = (sender, values) => {
     console.log('q1');
     console.log('values: ', values);
@@ -71,7 +71,7 @@ exports.q9 = (sender, values) => {
         }, 750);
     });
 };
-/*
+
 exports.q7 = (sender, values) => {
     console.log('q7');
     console.log('values: ', values);

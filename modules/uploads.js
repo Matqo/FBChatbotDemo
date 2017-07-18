@@ -18,6 +18,8 @@ exports.processUpload = (sender, attachments) => {
         console.log('attachment: ', attachment);
         if (attachment.type === "image") {
             console.log('image attachment');
+            /*
+
 
             messenger.getUserInfo(sender).then(response => {
                 //salesforce.updateLead({zip: res[0].zipcode}, sender).then(() => {
@@ -27,6 +29,10 @@ exports.processUpload = (sender, attachments) => {
                     }, 1000);
                 //});
             });
+
+
+
+            */
         } else if (attachment.type === "location") {
 
             console.log('attachment.payload.coordinates.lat: ', attachment.payload.coordinates.lat);
@@ -40,13 +46,13 @@ exports.processUpload = (sender, attachments) => {
                 if(!res[0].zipcode){
                     res[0].zipcode = 'Cannot determine zip code.';
                 }
-
+                /*
                 messenger.getUserInfo(sender).then(response => {
                     salesforce.updateLead({zip: res[0].zipcode}, sender).then(() => {
                         messenger.send(formatter.renderRooms(response), sender);
                     });
                 });
-                
+                */
             }).catch(function(err) {
                 console.log('err: ', err);
             });

@@ -24,19 +24,17 @@ rl.on('close', () => {
 
 let match = text => {
     console.log('text: ', text);
-    if(text != 'Etes vous locataire ou proprietaire?'){
-        for (var i=0; i<utterances.length; i++) {
-            var match = text.match(new RegExp(utterances[i].utterance, 'i'));
-            console.log('utterances[i].utterance', utterances[i].utterance);
-            if(match != null && match != 'null'){
-                if (match) {
-                    var handler = utterances[i].handler;
-                    console.log('text entered match: ', match); 
-                    return {handler, match};
-                } else {
-                    console.log('no match');
-                    console.log('text entered no match: ', match); 
-                }
+    for (var i=0; i<utterances.length; i++) {
+        var match = text.match(new RegExp(utterances[i].utterance, 'i'));
+        console.log('utterances[i].utterance', utterances[i].utterance);
+        if(match != null && match != 'null'){
+            if (match) {
+                var handler = utterances[i].handler;
+                console.log('text entered match: ', match); 
+                return {handler, match};
+            } else {
+                console.log('no match');
+                console.log('text entered no match: ', match); 
             }
         }
     }

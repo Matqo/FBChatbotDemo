@@ -24,7 +24,7 @@ var options = {
 };
 var geocoder = nodeGeocoder(options);
 let weather = {};
-
+/*
 exports.setWeather = (params) => {
     return new Promise((resolve, reject) => {
         console.log("params: ", params);
@@ -75,7 +75,7 @@ exports.getWeather = (params) =>{
         resolve(weather);
     });
 };
-
+*/
 exports.send = (message, recipient) => {
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -118,7 +118,7 @@ exports.getUserInfo = (userId) => {
 
     });
 };
-
+/*
 exports.getSuggestion = (account) => {
 
     return new Promise((resolve, reject) => {
@@ -184,3 +184,4 @@ exports.getSuggestion = (account) => {
 
     });
 };
+*/

@@ -14,13 +14,13 @@ let org = nforce.createConnection({
     mode: 'single',
     autoRefresh: true
 });
-
+/*
 let theCase = nforce.createSObject('Case');
 theCase.set('Subject', `Réclamation-Campanille-Duplicata`);
 theCase.set('RecordTypeId', `0126A000000r9Lv`);
 theCase.set('ContactId', `0036A000009H4qR`);
 theCase.set('Origin', `Facebook`);
-
+*/
 let login = () => {
     org.authenticate({username: SF_USER_NAME, password: SF_PASSWORD}, err => {
         if (err) {
@@ -147,6 +147,12 @@ let updateCase = (params, sender) => {
     });
 };
 */
+
+
+
+
+
+/*
 let getServiceContract = (response) => {
     console.log('getServiceContract');
     return new Promise((resolve, reject) => {
@@ -185,6 +191,13 @@ let getServiceContract = (response) => {
         });
     });
 };
+*/
+
+
+
+
+
+
 /*
 let getRecommendation = (response, theUserDetails) =>{
     console.log('getRecommendation');
@@ -229,4 +242,4 @@ login();
 
 
 
-exports.getServiceContract = getServiceContract;
+//exports.getServiceContract = getServiceContract;
