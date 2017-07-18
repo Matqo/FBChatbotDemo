@@ -1,3 +1,2 @@
 start hello
-start Get Started
 test test
