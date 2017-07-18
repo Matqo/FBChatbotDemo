@@ -33,7 +33,7 @@ let createRecord = (params, object) => {
         theObject.set('Description__c', `Product dropped, speaker malfunctioning`);
         theObject.set('Contact__c', '003f4000002ML0v');
         theObject.set('RMA_Status__c', 'In-Process');
-        theObject.set('Under_Warranty__c', 'true');
+        //theObject.set('Under_Warranty__c', 'true');
         
         org.insert({ sobject: theObject }, function(err, resp){
             if(!err && resp.records){
