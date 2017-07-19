@@ -26,11 +26,12 @@ exports.q3 = (sender, values) => {
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
 
-        let theObject = nforce.createSObject('RMA__c');
-        theObject.set('Description__c', `Product dropped, speaker malfunctioning`);
-        theObject.set('Contact__c', '003f4000002ML0v');
-        theObject.set('RMA_Status__c', 'In-Process');
-        theObject.set('Under_Warranty__c', true);
+        let theObject = nforce.createSObject('Case');
+        theObject.set('Subject', 'FB FrameHelp: Frame malfunction, under warranty RMA request');
+        theObject.set('ContactId', '003f4000002ML0v');
+        theObject.set('Origin', 'Messenger Bot');
+        theObject.set('Status', 'Closed');
+        theObject.set('Description', 'Case created by FB FrameHelp Bot');
 
         //Salesforce update records
         salesforce.createRecord(response, theObject).then(recordResult => {
