@@ -29,6 +29,7 @@ exports.q3 = (sender, values) => {
         let theObject = nforce.createSObject('Case');
         theObject.set('Subject', 'FB FrameHelp: Frame malfunction, under warranty RMA request');
         theObject.set('ContactId', '003f4000002ML0v');
+        theObject.set('RecordTypeId', '012f4000000krv5AAA');
         theObject.set('Origin', 'Messenger Bot');
         theObject.set('Status', 'Closed');
         theObject.set('Description', 'Case created by FB FrameHelp Bot');
