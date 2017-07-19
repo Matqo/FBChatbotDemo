@@ -41,3 +41,19 @@ exports.q3 = (sender, values) => {
         });
     });
 };
+
+exports.getStarted = (sender, values) => {
+    console.log('getStarted');
+    console.log('values: ', values);
+    /*
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `GetStarted Button clicked`}, sender);
+    });
+    */
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `Hi I'm FrameFixer. I ran some diagnostics and unfortunately it looks like you'll need a replacement Frame.`}, sender);
+        setTimeout(function(){
+            messenger.send(formatter.question1(), sender);
+        }, 1000);
+    });
+};
