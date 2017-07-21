@@ -32,6 +32,7 @@ exports.q3 = (sender, values) => {
         theObject.set('RecordTypeId', '012f4000000krv5AAA');
         theObject.set('Origin', 'Messenger Bot');
         theObject.set('Status', 'Closed');
+        theObject.set('Priority', 'High');
         theObject.set('Description', 'Case created by FB FrameHelp Bot');
 
         //Salesforce update records
