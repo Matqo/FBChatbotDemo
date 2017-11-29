@@ -34,16 +34,16 @@ let getBookings = (params) => {
         org.query({ query: q }, function(err, resp){
 
             if(!err && resp.records) {
-                console.log(resp.records);
+                console.log('resp: ',resp.records);
                 var theContactId = resp.records[0].get("Id");
                 console.log(theContactId);
-                
+
                 var theQ = `SELECT Id, Destination__c FROM Booking__c WHERE Contact__c = '${theContactId}'`;
 
                 org.query({ query: theQ }, function(err2, resp2){
 
                     if(!err2 && resp2.records) {
-                        console.log(resp2.records);
+                        console.log('resp2: ',resp2.records);
                         var theList = resp2.records;
                         resolve(theList);
                     }
