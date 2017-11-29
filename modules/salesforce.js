@@ -38,7 +38,7 @@ let getBookings = (params) => {
 
             var q = `SELECT Id, Destination__c FROM Booking__c WHERE Contact__c = '${theContactId}'`;
 
-            org.query({ query: theQ }, function(err, resp){
+            org.query({ query: q }, function(err, resp){
 
                 if(!err && resp.records) {
                     var theList = resp.records;
