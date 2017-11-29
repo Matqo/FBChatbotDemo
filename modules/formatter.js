@@ -46,7 +46,7 @@ exports.bookingsRender = response => {
                     
                     {
                         "type": "postback",
-                        "title": "Add an Activity or Service",
+                        "title": "Activity or Service",
                         "payload": "activityService," + booking.getId()
                     },
                     {
@@ -75,23 +75,23 @@ exports.bookingsRender = response => {
 };
 
 exports.question2 = response => {
-    console.log('question2');
+    console.log('question1');
     return {
         "attachment": {
             "type":"template",
             "payload": {
                 "template_type":"button",
-                "text":"Great. First I'll need to confirm your shipping address. Confirm Address: 332 Pine St, Berkeley, CA 94703",
+                "text":"Do you want to add a Service or an Activities?",
                 "buttons":[
                       {
                             "type":"postback",
-                            "title":"Confirm",
-                            "payload":"q2,Confirm"
+                            "title":"Service",
+                            "payload":"q2,Service,"+response
                       },
                       {
                             "type":"postback",
-                            "title":"Edit",
-                            "payload":"q2,Edit"
+                            "title":"Activity",
+                            "payload":"q2,Activity,"+response
                       }
                 ]
             }

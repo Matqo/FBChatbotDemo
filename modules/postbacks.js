@@ -18,11 +18,40 @@ exports.q1 = (sender, values) => {
     });
 };
 
+exports.activityService = (sender, values) => {
+    console.log('activityService');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.question2(values), sender);
+    });
+};
+exports.map = (sender, values) => {
+    console.log('map');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        //messenger.send(formatter.question3(response), sender);
+    });
+};
+exports.bookingEdit = (sender, values) => {
+    console.log('bookingEdit');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        //messenger.send(formatter.question3(response), sender);
+    });
+};
+
 exports.q2 = (sender, values) => {
     console.log('q2');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.question3(response), sender);
+        if(values = 'Service'){
+            /*
+            salesforce.getBookings(response).then(bookingResponse => {
+                console.log('bookingResponse: ', bookingResponse);
+                messenger.send(formatter.bookingsRender(bookingResponse), sender);
+            });
+            */
+        }
     });
 };
 
