@@ -74,6 +74,7 @@ app.post('/webhook', (req, res) => {
             console.log('postback');
             let payload = event.postback.payload.split(",");
             let postback = postbacks[payload[0]];
+            event.postback.payload = payload[1];
             if (postback && typeof postback === "function") {
                 postback(sender, payload);
             } else {
