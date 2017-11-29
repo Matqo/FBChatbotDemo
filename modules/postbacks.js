@@ -53,7 +53,31 @@ exports.q2 = (sender, values) => {
     });
 };
 
+exports.selectService = (sender, values) => {
+    console.log('selectService');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.question3(response), sender);
+    });
+};
+
 exports.q3 = (sender, values) => {
+    console.log('q3');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.question4(response), sender);
+    });
+};
+
+exports.q4 = (sender, values) => {
+    console.log('q4');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send('Perfect, 3 Pizza Pepperoni - 2 persons will be delivered to your appartment at 19h30. Is there anything else I can help you with?', sender);
+    });
+};
+
+exports.q3444 = (sender, values) => {
     console.log('q3');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {

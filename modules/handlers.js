@@ -19,4 +19,12 @@ exports.start = (sender) => {
             messenger.send(formatter.question1(), sender);
         }, 1000);
     });
-};         
+}; 
+
+exports.finish = (sender) => {
+    console.log('finish');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `Good Bye. Have a pleasant stay with us`}, sender);
+
+    });
+};    

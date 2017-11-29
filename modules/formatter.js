@@ -134,22 +134,52 @@ exports.question3 = response => {
             "type":"template",
             "payload": {
                 "template_type":"button",
-                "text":"How fast do you need the new Frame?",
+                "text":"How many do you want?",
                 "buttons":[
                       {
                             "type":"postback",
-                            "title":"Standard (Free)",
-                            "payload":"q3,Standard (Free)"
+                            "title":"1",
+                            "payload":"q3,1"
                       },
                       {
                             "type":"postback",
-                            "title":"Express ($9.99)",
-                            "payload":"q3,Express ($9.99)"
+                            "title":"2",
+                            "payload":"q3,2"
                       },
                       {
                             "type":"postback",
-                            "title":"Next Day ($19.99)",
-                            "payload":"q3,Next Day ($19.99)"
+                            "title":"3",
+                            "payload":"q3,3"
+                      }
+                ]
+            }
+        }
+    }
+};
+
+exports.question4 = response => {
+    console.log('question4');
+    return {
+        "attachment": {
+            "type":"template",
+            "payload": {
+                "template_type":"button",
+                "text":"At what time do you want them to be delivered?",
+                "buttons":[
+                      {
+                            "type":"postback",
+                            "title":"1 Hour",
+                            "payload":"q4,1"
+                      },
+                      {
+                            "type":"postback",
+                            "title":"2 Hours",
+                            "payload":"q4,2"
+                      },
+                      {
+                            "type":"postback",
+                            "title":"3 Hours",
+                            "payload":"q4,3"
                       }
                 ]
             }
