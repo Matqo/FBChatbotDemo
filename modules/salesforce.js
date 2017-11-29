@@ -34,6 +34,7 @@ let getBookings = (params) => {
         org.query({ query: q }, function(err, resp){
 
             if(!err && resp.records) {
+                console.log(resp.records);
                 var theContactId = resp.records[0].get("Id");
 
                 var q = `SELECT Id, Destination__c FROM Booking__c WHERE Contact__c = '${theContactId}'`;
@@ -41,6 +42,7 @@ let getBookings = (params) => {
                 org.query({ query: q }, function(err, resp){
 
                     if(!err && resp.records) {
+                        console.log(resp.records);
                         var theList = resp.records;
                         resolve(theList);
                     }
