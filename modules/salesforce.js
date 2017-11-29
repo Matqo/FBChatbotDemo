@@ -28,6 +28,31 @@ let login = () => {
 
 let getBookings = (params) => {
     console.log('params: ', params);
+
+    var q = `SELECT Id, FirstName, LastName FROM Contact WHERE FirstName = '${params.first_name}' AND LastName = '${params.last_name}'`;
+
+    org.query({ query: q }, function(err, resp){
+
+        if(!err && resp.records) {
+            var theContactId = resp.records[0].get("Id");
+
+            var q = `SELECT Id, Destination__c FROM Booking__c WHERE Contact__c = '${theContactId}'`;
+
+            org.query({ query: theQ }, function(err, resp){
+
+                if(!err && resp.records) {
+                    var theList = resp.records;
+                    resolve(theList);
+                }
+                else{
+                    reject('No Bookings');
+                }
+            });
+        }
+        else{
+            reject('No Contact');
+        }
+    });
     /*
     return new Promise((resolve,reject) => {
         org.insert({ sobject: theObject }, function(err, resp){
