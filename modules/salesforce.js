@@ -30,7 +30,7 @@ let getBookings = (params) => {
     console.log('params: ', params);
     return new Promise((resolve,reject) => {
         var q = `SELECT Id, FirstName, LastName FROM Contact WHERE FirstName = '${params.first_name}' AND LastName = '${params.last_name}'`;
-
+        console.log('q: ',q);
         org.query({ query: q }, function(err, resp){
 
             if(!err && resp.records) {
@@ -39,7 +39,7 @@ let getBookings = (params) => {
                 console.log(theContactId);
 
                 var theQ = `SELECT Id, Destination__c FROM Booking__c WHERE Contact__c = '${theContactId}'`;
-
+                console.log('theQ: ',theQ);
                 org.query({ query: theQ }, function(err2, resp2){
 
                     if(!err2 && resp2.records) {
