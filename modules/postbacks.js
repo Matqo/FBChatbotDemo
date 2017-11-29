@@ -44,13 +44,11 @@ exports.q2 = (sender, values) => {
     console.log('q2');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        if(values = 'Service'){
-            /*
-            salesforce.getBookings(response).then(bookingResponse => {
-                console.log('bookingResponse: ', bookingResponse);
-                messenger.send(formatter.bookingsRender(bookingResponse), sender);
+        if(values[0] = 'Service'){
+            salesforce.getServices(values[1]).then(serviceResponse => {
+                console.log('serviceResponse: ', serviceResponse);
+                messenger.send(formatter.serviceRender(serviceResponse), sender);
             });
-            */
         }
     });
 };

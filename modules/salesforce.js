@@ -57,20 +57,25 @@ let getBookings = (params) => {
             }
         });
     });
-    /*
+};
+
+let getServices = (params) => {
+    console.log('params: ', params);
     return new Promise((resolve,reject) => {
-        org.insert({ sobject: theObject }, function(err, resp){
-            if(!err){
-                var theReturnRecord = resp;
-                console.log('Record created: ', theReturnRecord);
-                resolve(theReturnRecord);
+        var q = `SELECT Id, Name FROM Available_Activity__c WHERE Booking__c = '${params}'`;
+        console.log('q: ',q);
+        org.query({ query: q }, function(err, resp){
+
+            if(!err && resp.records) {
+                console.log('resp: ',resp.records);
+                var theServices = resp.records;
+                resolve(theServices);
             }
             else{
-                reject(err);
+                reject('No Services', err);
             }
         });
     });
-    */
 };
 
 let createRecord = (params, theObject) => {

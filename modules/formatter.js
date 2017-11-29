@@ -99,6 +99,34 @@ exports.question2 = response => {
     }
 };
 
+exports.serviceRender = response => {
+    console.log('serviceRender');
+    let elements = [];
+    response.forEach(service => {
+            elements.push({
+                title: service.get("Name"),
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?slide1.png',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Select",
+                        "payload": "selectService," + service.getId()
+                    }
+                ]
+            })
+        }
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
 exports.question3 = response => {
     console.log('question3');
     return {
