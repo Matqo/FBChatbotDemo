@@ -97,3 +97,4 @@ login();
 
 exports.createRecord = createRecord;
 exports.getBookings = getBookings;
+exports.getServices = getServices;
