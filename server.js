@@ -75,7 +75,8 @@ app.post('/webhook', (req, res) => {
             let payload = event.postback.payload.split(",");
             let postback = postbacks[payload[0]];
             if (postback && typeof postback === "function") {
-                postback(sender, payload[1]);
+                payload.splice(0, 1);
+                postback(sender, payload);
             } else {
                 console.log("Postback " + postback + " is not defined");
             }
