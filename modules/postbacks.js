@@ -12,7 +12,7 @@ exports.q1 = (sender, values) => {
         if(values = 'Booking'){
             salesforce.getBookings(response).then(bookingResponse => {
                 console.log('bookingResponse: ', bookingResponse);
-                //messenger.send(formatter.bookingsRender(bookingResponse), sender);
+                messenger.send(formatter.bookingsRender(bookingResponse), sender);
             });
         }
     });

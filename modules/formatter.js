@@ -35,6 +35,45 @@ exports.question1 = response => {
     }
 };
 
+exports.bookingsRender = response => {
+    console.log('bookingsRender');
+    let elements = [];
+    response.forEach(booking => {
+            elements.push({
+                title: booking.get("Destination__c"),
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?slide1.png',
+                "buttons": [
+                    
+                    {
+                        "type": "postback",
+                        "title": "Add an Activity or Service",
+                        "payload": "activityService," + booking.getId()
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Map to location",
+                        "payload": "map," + booking.getId()
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Booking Modification",
+                        "payload": "bookingEdit," + booking.getId()
+                    }
+                ]
+            })
+        }
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
 exports.question2 = response => {
     console.log('question2');
     return {
