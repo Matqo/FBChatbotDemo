@@ -26,6 +26,24 @@ let login = () => {
     });
 };
 
+let getBookings = (params) => {
+    console.log('params: ', params);
+    /*
+    return new Promise((resolve,reject) => {
+        org.insert({ sobject: theObject }, function(err, resp){
+            if(!err){
+                var theReturnRecord = resp;
+                console.log('Record created: ', theReturnRecord);
+                resolve(theReturnRecord);
+            }
+            else{
+                reject(err);
+            }
+        });
+    });
+    */
+};
+
 let createRecord = (params, theObject) => {
     return new Promise((resolve,reject) => {
         org.insert({ sobject: theObject }, function(err, resp){
@@ -44,3 +62,4 @@ let createRecord = (params, theObject) => {
 login();
 
 exports.createRecord = createRecord;
+exports.getBookings = getBookings;
