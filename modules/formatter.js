@@ -12,17 +12,21 @@ exports.question1 = response => {
             "type":"template",
             "payload": {
                 "template_type":"button",
-                "text":"Can I get the replacement and return process started for you? It will take a few minutes.",
                 "buttons":[
                       {
                             "type":"postback",
-                            "title":"Yes",
-                            "payload":"q1,Yes"
+                            "title":"Booking",
+                            "payload":"q1,Booking"
                       },
                       {
                             "type":"postback",
-                            "title":"No",
-                            "payload":"q1,No"
+                            "title":"My Profile",
+                            "payload":"q1,My Profile"
+                      },
+                      {
+                            "type":"postback",
+                            "title":"Information",
+                            "payload":"q1,Information"
                       }
                 ]
             }

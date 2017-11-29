@@ -9,7 +9,15 @@ exports.q1 = (sender, values) => {
     console.log('q1');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
+        /*
         messenger.send(formatter.question2(response), sender);
+        if(values = 'Booking'){
+            salesforce.getBookings(response).then(bookingResponse => {
+                messenger.send(formatter.bookingsRender(bookingResponse), sender);
+            });
+        }
+        */
+
     });
 };
 
