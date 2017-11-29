@@ -14,7 +14,7 @@ exports.test = (sender) => {
 exports.start = (sender) => {
     console.log('start');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Hello ${response.first_name} I am your digital concierge. How can I help you today?`}, sender);
+        messenger.send({text: `Hello ${response.first_name} I am your digital concierge.`}, sender);
         setTimeout(function(){
             messenger.send(formatter.question1(), sender);
         }, 1000);
