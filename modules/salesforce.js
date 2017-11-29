@@ -36,23 +36,24 @@ let getBookings = (params) => {
             if(!err && resp.records) {
                 console.log(resp.records);
                 var theContactId = resp.records[0].get("Id");
+                console.log(theContactId);
+                
+                var theQ = `SELECT Id, Destination__c FROM Booking__c WHERE Contact__c = '${theContactId}'`;
 
-                var q = `SELECT Id, Destination__c FROM Booking__c WHERE Contact__c = '${theContactId}'`;
+                org.query({ query: theQ }, function(err2, resp2){
 
-                org.query({ query: q }, function(err, resp){
-
-                    if(!err && resp.records) {
-                        console.log(resp.records);
-                        var theList = resp.records;
+                    if(!err2 && resp2.records) {
+                        console.log(resp2.records);
+                        var theList = resp2.records;
                         resolve(theList);
                     }
                     else{
-                        reject('No Bookings');
+                        reject('No Bookings', err2);
                     }
                 });
             }
             else{
-                reject('No Contact');
+                reject('No Contact', err);
             }
         });
     });
