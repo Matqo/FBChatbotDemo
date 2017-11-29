@@ -28,30 +28,31 @@ let login = () => {
 
 let getBookings = (params) => {
     console.log('params: ', params);
+    return new Promise((resolve,reject) => {
+        var q = `SELECT Id, FirstName, LastName FROM Contact WHERE FirstName = '${params.first_name}' AND LastName = '${params.last_name}'`;
 
-    var q = `SELECT Id, FirstName, LastName FROM Contact WHERE FirstName = '${params.first_name}' AND LastName = '${params.last_name}'`;
+        org.query({ query: q }, function(err, resp){
 
-    org.query({ query: q }, function(err, resp){
+            if(!err && resp.records) {
+                var theContactId = resp.records[0].get("Id");
 
-        if(!err && resp.records) {
-            var theContactId = resp.records[0].get("Id");
+                var q = `SELECT Id, Destination__c FROM Booking__c WHERE Contact__c = '${theContactId}'`;
 
-            var q = `SELECT Id, Destination__c FROM Booking__c WHERE Contact__c = '${theContactId}'`;
+                org.query({ query: q }, function(err, resp){
 
-            org.query({ query: q }, function(err, resp){
-
-                if(!err && resp.records) {
-                    var theList = resp.records;
-                    resolve(theList);
-                }
-                else{
-                    reject('No Bookings');
-                }
-            });
-        }
-        else{
-            reject('No Contact');
-        }
+                    if(!err && resp.records) {
+                        var theList = resp.records;
+                        resolve(theList);
+                    }
+                    else{
+                        reject('No Bookings');
+                    }
+                });
+            }
+            else{
+                reject('No Contact');
+            }
+        });
     });
     /*
     return new Promise((resolve,reject) => {
