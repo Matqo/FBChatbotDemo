@@ -10,6 +10,7 @@ exports.question1 = response => {
     return {
         "attachment": {
             "type":"template",
+            "text":"Please choose an option:",
             "payload": {
                 "template_type":"button",
                 "buttons":[
