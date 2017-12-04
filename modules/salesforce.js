@@ -82,8 +82,9 @@ let createRecord = (params) => {
     return new Promise((resolve,reject) => {
 
         let theSelectedService = nforce.createSObject('Selected_Activity__c');
-        theSelectedService.set('Name', `TEST`);
+        theSelectedService.set('Name', `ROOM SERVICE - Pizza pepperoni 2 persons - LES ARCS 1950`);
         theSelectedService.set('Booking__c', 'a0I0O00000IpyDEUAZ');
+        theSelectedService.set('Available_Activity__c', 'a1r0O000002YwKqQAK');
         theSelectedService.set('Contact__c', `0030O000024AdHJQA0`);
         theSelectedService.set('Quantity__c', 3);
         theSelectedService.set('Unit_Price__c', 12.99);
