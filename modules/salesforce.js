@@ -38,7 +38,7 @@ let getBookings = (params) => {
                 var theContactId = resp.records[0].get("Id");
                 console.log(theContactId);
 
-                var theQ = `SELECT Id, Destination__c FROM Booking__c WHERE Contact__c = '${theContactId}'`;
+                var theQ = `SELECT Id, Destination__c, Name FROM Booking__c WHERE Contact__c = '${theContactId}'`;
                 console.log('theQ: ',theQ);
                 org.query({ query: theQ }, function(err2, resp2){
 
@@ -62,7 +62,7 @@ let getBookings = (params) => {
 let getServices = (params) => {
     console.log('params: ', params);
     return new Promise((resolve,reject) => {
-        var q = `SELECT Id, Name FROM Available_Activity__c WHERE Booking__c = '${params}'`;
+        var q = `SELECT Id, Name, Unit_Price__c FROM Available_Activity__c WHERE Booking__c = '${params}'`;
         console.log('q: ',q);
         org.query({ query: q }, function(err, resp){
 

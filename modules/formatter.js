@@ -16,7 +16,7 @@ exports.question1 = response => {
                 "buttons":[
                       {
                             "type":"postback",
-                            "title":"Booking",
+                            "title":"Current Booking",
                             "payload":"q1,Booking"
                       },
                       {
@@ -40,13 +40,13 @@ exports.bookingsRender = response => {
     let elements = [];
     response.forEach(booking => {
             elements.push({
-                title: booking.get("Destination__c"),
+                title: booking.get("Name") + ' - ' + booking.get("Destination__c"),
                 "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?slide1.png',
                 "buttons": [
                     
                     {
                         "type": "postback",
-                        "title": "Activity or Service",
+                        "title": "Add a Service or an Activity",
                         "payload": "activityService," + booking.getId()
                     },
                     {
@@ -104,7 +104,7 @@ exports.serviceRender = response => {
     let elements = [];
     response.forEach(service => {
             elements.push({
-                title: service.get("Name"),
+                title: service.get("Name") + ' - Price: ' + service.get("Unit_Price__c"),
                 "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?slide1.png',
                 "buttons": [
                     {
