@@ -62,7 +62,7 @@ let getBookings = (params) => {
 let getServices = (params) => {
     console.log('params: ', params);
     return new Promise((resolve,reject) => {
-        var q = `SELECT Id, Name, Unit_Price__c FROM Available_Activity__c WHERE Booking__c = '${params}'`;
+        var q = `SELECT Id, Name, Unit_Price__c, Pic_URL__c FROM Available_Activity__c WHERE Booking__c = '${params}'`;
         console.log('q: ',q);
         org.query({ query: q }, function(err, resp){
 
@@ -78,9 +78,17 @@ let getServices = (params) => {
     });
 };
 
-let createRecord = (params, theObject) => {
+let createRecord = (params) => {
     return new Promise((resolve,reject) => {
-        org.insert({ sobject: theObject }, function(err, resp){
+
+        let theSelectedService = nforce.createSObject('Selected_Activity__c');
+        theSelectedService.set('Name', `TEST`);
+        theSelectedService.set('Booking__c', 'a0I0O00000IpyDEUAZ');
+        theSelectedService.set('Contact__c', `0030O000024AdHJQA0`);
+        theSelectedService.set('Quantity__c', 3);
+        theSelectedService.set('Unit_Price__c', 12.99);
+
+        org.insert({ sobject: theSelectedService }, function(err, resp){
             if(!err){
                 var theReturnRecord = resp;
                 console.log('Record created: ', theReturnRecord);

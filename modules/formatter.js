@@ -41,7 +41,7 @@ exports.bookingsRender = response => {
     response.forEach(booking => {
             elements.push({
                 title: booking.get("Name") + ' - ' + booking.get("Destination__c"),
-                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?slide1.png',
+                "image_url": 'https://pvcp-facebook-bot.herokuapp.com/images?CPlogo.jpeg',
                 "buttons": [
                     
                     {
@@ -105,7 +105,7 @@ exports.serviceRender = response => {
     response.forEach(service => {
             elements.push({
                 title: service.get("Name") + ' - Price: ' + service.get("Unit_Price__c"),
-                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?slide1.png',
+                "image_url": service.get("Pic_URL__c"),
                 "buttons": [
                     {
                         "type": "postback",

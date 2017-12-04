@@ -73,7 +73,9 @@ exports.q4 = (sender, values) => {
     console.log('q4');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: 'Perfect, 3 Pizza Pepperoni - 2 persons will be delivered to your appartment at 19h30. The cost is 38.97 Euros. Is there anything else I can help you with?'}, sender);
+        salesforce.createRecord(response).then(createdRecord => {
+            messenger.send({text: 'Perfect, 3 Pizza Pepperoni - 2 persons will be delivered to your appartment at 19h30. The cost is 38.97 Euros. Is there anything else I can help you with?'}, sender);
+        });
     });
 };
 
