@@ -29,7 +29,7 @@ let login = () => {
 let getBookings = (params) => {
     console.log('params: ', params);
     return new Promise((resolve,reject) => {
-        var q = `SELECT Id, FirstName, LastName FROM Contact WHERE FirstName = '${params.first_name}' AND LastName = '${params.last_name}'`;
+        var q = `SELECT Id, FirstName, LastName FROM Contact WHERE FirstName = '* Léa' AND LastName = '${params.last_name}'`;
         console.log('q: ',q);
         org.query({ query: q }, function(err, resp){
 
