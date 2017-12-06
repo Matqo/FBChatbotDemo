@@ -14,17 +14,27 @@ exports.test = (sender) => {
 exports.start = (sender) => {
     console.log('start');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Hello ${response.first_name} I am your digital concierge.`}, sender);
-        setTimeout(function(){
-            messenger.send(formatter.question1(), sender);
-        }, 1000);
+        messenger.send({text: `Bonjour ${response.first_name}, quelle est votre demande ?`}, sender);
     });
 }; 
 
-exports.finish = (sender) => {
-    console.log('finish');
+exports.start1 = (sender) => {
+    console.log('start1');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Good Bye. Have a pleasant stay with us`}, sender);
+        messenger.send({text: `Très bien. Dans quelle région êtes vous installé`}, sender);
+    });
+}; 
 
+exports.start2 = (sender) => {
+    console.log('start2');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.question1(response), sender);
+    });
+}; 
+
+exports.start3 = (sender) => {
+    console.log('start3');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.finish1(response), sender);
     });
 };    

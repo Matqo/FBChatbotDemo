@@ -12,22 +12,22 @@ exports.question1 = response => {
             "type":"template",
             "payload": {
                 "template_type":"button",
-                "text":"How can I help you today?",
+                "text":"Combien d’employé ?",
                 "buttons":[
                       {
                             "type":"postback",
-                            "title":"Current Booking",
-                            "payload":"q1,Booking"
+                            "title":"<10",
+                            "payload":"q1,<10"
                       },
                       {
                             "type":"postback",
-                            "title":"My Profile",
-                            "payload":"q1,My Profile"
+                            "title":">11 et <100",
+                            "payload":"q1,>11 et <100"
                       },
                       {
                             "type":"postback",
-                            "title":"Information",
-                            "payload":"q1,Information"
+                            "title":">101",
+                            "payload":"q1,>101"
                       }
                 ]
             }
@@ -35,151 +35,19 @@ exports.question1 = response => {
     }
 };
 
-exports.bookingsRender = response => {
-    console.log('bookingsRender');
-    let elements = [];
-    response.forEach(booking => {
-            elements.push({
-                title: booking.get("Name") + ' - ' + booking.get("Destination__c"),
-                "image_url": 'https://pvcp-facebook-bot.herokuapp.com/images?CPlogo.jpeg',
-                "buttons": [
-                    
-                    {
-                        "type": "postback",
-                        "title": "Add a Service or an Activity",
-                        "payload": "activityService," + booking.getId()
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Map to location",
-                        "payload": "map," + booking.getId()
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Booking Modification",
-                        "payload": "bookingEdit," + booking.getId()
-                    }
-                ]
-            })
-        }
-    );
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elements
-            }
-        }
-    };
-};
-
-exports.question2 = response => {
+exports.finish1 = response => {
     console.log('question1');
     return {
         "attachment": {
             "type":"template",
             "payload": {
                 "template_type":"button",
-                "text":"Do you want to add a Service or an Activities?",
+                "text":"Parfait. Business France a une forte activité d’accompagnement à l’export vers les USA. Nous pouvons vous aider. Veuillez compléter votre profil via le lien suivant.",
                 "buttons":[
                       {
-                            "type":"postback",
-                            "title":"Service",
-                            "payload":"q2,Service,"+response
-                      },
-                      {
-                            "type":"postback",
-                            "title":"Activity",
-                            "payload":"q2,Activity,"+response
-                      }
-                ]
-            }
-        }
-    }
-};
-
-exports.serviceRender = response => {
-    console.log('serviceRender');
-    let elements = [];
-    response.forEach(service => {
-            elements.push({
-                title: service.get("Name") + ' - Price: ' + service.get("Unit_Price__c"),
-                "image_url": service.get("Pic_URL__c"),
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Select",
-                        "payload": "selectService," + service.getId()
-                    }
-                ]
-            })
-        }
-    );
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elements
-            }
-        }
-    };
-};
-
-exports.question3 = response => {
-    console.log('question3');
-    return {
-        "attachment": {
-            "type":"template",
-            "payload": {
-                "template_type":"button",
-                "text":"How many do you want?",
-                "buttons":[
-                      {
-                            "type":"postback",
-                            "title":"1",
-                            "payload":"q3,1"
-                      },
-                      {
-                            "type":"postback",
-                            "title":"2",
-                            "payload":"q3,2"
-                      },
-                      {
-                            "type":"postback",
-                            "title":"3",
-                            "payload":"q3,3"
-                      }
-                ]
-            }
-        }
-    }
-};
-
-exports.question4 = response => {
-    console.log('question4');
-    return {
-        "attachment": {
-            "type":"template",
-            "payload": {
-                "template_type":"button",
-                "text":"At what time do you want them to be delivered?",
-                "buttons":[
-                      {
-                            "type":"postback",
-                            "title":"1 Hour",
-                            "payload":"q4,1"
-                      },
-                      {
-                            "type":"postback",
-                            "title":"2 Hours",
-                            "payload":"q4,2"
-                      },
-                      {
-                            "type":"postback",
-                            "title":"3 Hours",
-                            "payload":"q4,3"
+                            "type":"web_url",
+                            "title":"Link",
+                            "url":"https://sdodemo-main-15fe483aefe.force.com/professional/s/pardotform?t=1512475181334"
                       }
                 ]
             }

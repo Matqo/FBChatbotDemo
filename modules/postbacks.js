@@ -9,12 +9,7 @@ exports.q1 = (sender, values) => {
     console.log('q1');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        if(values = 'Booking'){
-            salesforce.getBookings(response).then(bookingResponse => {
-                console.log('bookingResponse: ', bookingResponse);
-                messenger.send(formatter.bookingsRender(bookingResponse), sender);
-            });
-        }
+        messenger.send({text: 'Quelle région vous ciblez ?'}, sender);
     });
 };
 
