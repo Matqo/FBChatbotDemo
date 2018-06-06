@@ -146,3 +146,48 @@ exports.dress3 = response => {
         }
     };
 };
+
+exports.sendMap = response => {
+    console.log('In sendMap: ', response);
+    let elements = [];
+
+    elements.push({
+        "title": "Store Location",
+        "image_url": "https://phil-salesforce-bot.herokuapp.com/images?map.png"
+    });
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
+exports.sendQuestion = response => {
+    console.log('In sendQuestion: ', response);
+    let elements = [];
+
+    elements.push({
+        "type":"postback",
+        "title":"Yes",
+        "payload":"yes"
+    });
+    elements.push({
+        "type":"postback",
+        "title":"No",
+        "payload":"no"
+    });
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": "Is this the Store you wish to pick up?",
+                "buttons": elements
+            }
+        }
+    };
+};

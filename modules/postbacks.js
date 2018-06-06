@@ -8,7 +8,7 @@ exports.exchange = (sender, values) => {
     console.log('exchange');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: 'OK, that is great ${response.first_name}, lets see if we can work the Exchange here for you?'}, sender);
+        messenger.send({text: `OK, that is great ${response.first_name}, lets see if we can work the Exchange here for you?`}, sender);
         setTimeout(function(){
             messenger.send(formatter.sendImages(response), sender);
         },500);
@@ -19,7 +19,25 @@ exports.selectDress = (sender, values) => {
     console.log('selectDress');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.dress1(values), sender);
+        if(values[0] == 'dress1'){
+            messenger.send(formatter.dress1(values), sender);
+            setTimeout(function(){
+                messenger.send({text: `Is there anything else that we can do for you today ${response.first_name}?`}, sender);
+            },500);
+        }
+        else if(values[0] == 'dress2'){
+            messenger.send(formatter.dress2(values), sender);
+            setTimeout(function(){
+                messenger.send({text: `Is there anything else that we can do for you today ${response.first_name}?`}, sender);
+            },500);
+        }
+        else if(values[0] == 'dress3'){
+            messenger.send(formatter.dress3(values), sender);
+            setTimeout(function(){
+                messenger.send({text: `Is there anything else that we can do for you today ${response.first_name}?`}, sender);
+            },500);
+        }
+        
     });
 };
 exports.map = (sender, values) => {

@@ -32,13 +32,34 @@ exports.start1 = (sender) => {
 exports.start2 = (sender) => {
     console.log('start2');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.question1(response), sender);
+        messenger.send({text: `No problem at all Yasmin.`}, sender);
+        setTimeout(function(){
+            messenger.send({text: `Looking at your preferences, your favourite pick up preference store is 44-46 Brushfield Street.`}, sender);  
+        },500);
+        setTimeout(function(){
+            messenger.send(formatter.sendMap(response), sender);
+        },1000);
+        setTimeout(function(){
+            messenger.send(formatter.sendQuestion(response), sender);
+        },1500);
+        
     });
 }; 
+
+exports.yes = (sender) => {
+    console.log('yes');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `Can you bring the return item with you and speak to any member of our Team in store with REF: 287348870-34`}, sender);
+        setTimeout(function(){
+            messenger.send({text: `Is there anything else we can help you with today ${response.first_name}?`}, sender);  
+        },500);
+
+    });
+};
 
 exports.start3 = (sender) => {
     console.log('start3');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.finish1(response), sender);
+        messenger.send({text: `You are very welcome ${response.first_name}, have a great day!`}, sender);
     });
 };    
