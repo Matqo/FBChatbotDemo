@@ -2,7 +2,6 @@
 
 let messenger = require('./messenger'),
     formatter = require('./formatter'),
-    salesforce = require('./salesforce'),
     visionService = require('./vision-service-mock'),
     nodeGeocoder = require('node-geocoder');
 

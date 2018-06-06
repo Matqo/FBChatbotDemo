@@ -1,7 +1,6 @@
 "use strict";
 
-let salesforce = require('./salesforce'),
-    messenger = require('./messenger'),
+let messenger = require('./messenger'),
     formatter = require('./formatter');
 
 exports.test = (sender) => {
@@ -14,15 +13,19 @@ exports.test = (sender) => {
 exports.start = (sender) => {
     console.log('start');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Bonjour ${response.first_name}, quelle est votre demande ?`}, sender);
+        messenger.send({text: `Hi ${response.first_name}, this is your Whistles Chatbot Agent, how can I help you today?`}, sender);
     });
 }; 
 
 exports.start1 = (sender) => {
     console.log('start1');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Très bien. Dans quelle région êtes vous installé`}, sender);
+        messenger.send({text: `Thank you ${response.first_name}, we are sorry to hear you didn't like the dress, however, we can fix this.  Please see some options below.  If one of these options doesn't work for you, please select Transfer to an Agent`}, sender);
+        setTimeout(function(){
+            messenger.send(formatter.sendButtons(response), sender);
+        },500);
     });
+
 }; 
 
 exports.start2 = (sender) => {

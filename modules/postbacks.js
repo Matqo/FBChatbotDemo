@@ -1,23 +1,25 @@
 "use strict";
 
-let salesforce = require('./salesforce'),
-    messenger = require('./messenger'),
+let messenger = require('./messenger'),
     formatter = require('./formatter'),
     nforce = require('nforce');
 
-exports.q1 = (sender, values) => {
-    console.log('q1');
+exports.exchange = (sender, values) => {
+    console.log('exchange');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: 'Quelle région vous ciblez ?'}, sender);
+        messenger.send({text: 'OK, that is great Yasmin, lets see if we can work the Exchange here for you?'}, sender);
+        setTimeout(function(){
+            messenger.send(formatter.sendImages(response), sender);
+        },500);
     });
 };
 
-exports.activityService = (sender, values) => {
-    console.log('activityService');
+exports.selectDress = (sender, values) => {
+    console.log('selectDress');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.question2(values), sender);
+        messenger.send(formatter.dress1(values), sender);
     });
 };
 exports.map = (sender, values) => {

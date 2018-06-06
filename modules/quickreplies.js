@@ -1,5 +1,4 @@
 "use strict";
 
-let salesforce = require('./salesforce'),
-    messenger = require('./messenger'),
+let messenger = require('./messenger'),
     formatter = require('./formatter');

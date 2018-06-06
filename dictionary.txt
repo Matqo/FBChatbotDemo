@@ -1,5 +1,3 @@
-start hello
-start1 conseil
-start2 bretagne
-start3 USA
+start help
 test test
+start1 I bought the
