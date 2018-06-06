@@ -29,7 +29,7 @@ exports.sendButtons = response => {
             "type": "template",
             "payload": {
                 "template_type": "button",
-                "text": "Your Options are as follows"
+                "text": "Your Options are as follows",
                 "buttons": elements
             }
         }
