@@ -32,7 +32,7 @@ exports.start1 = (sender) => {
 exports.start2 = (sender) => {
     console.log('start2');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `No problem at all Yasmin.`}, sender);
+        messenger.send({text: `No problem at all ${response.first_name}.`}, sender);
         setTimeout(function(){
             messenger.send({text: `Looking at your preferences, your favourite pick up preference store is 44-46 Brushfield Street.`}, sender);  
         },500);

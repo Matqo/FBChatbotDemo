@@ -133,3 +133,14 @@ exports.getStarted = (sender, values) => {
         }, 1000);
     });
 };
+
+exports.yes = (sender) => {
+    console.log('yes');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `Can you bring the return item with you and speak to any member of our Team in store with REF: 287348870-34`}, sender);
+        setTimeout(function(){
+            messenger.send({text: `Is there anything else we can help you with today ${response.first_name}?`}, sender);  
+        },500);
+
+    });
+};
