@@ -42,7 +42,7 @@ exports.sendImages = response => {
 
     elements.push({
         "title": "Capri Print Silk Bodycon",
-        "description":"€219.00",
+        "subtitle":"€219.00",
         "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress1.jpg",
         "buttons": [
             {
@@ -54,7 +54,7 @@ exports.sendImages = response => {
     });
     elements.push({
         "title": "Palmyra Print Silk Bodycon",
-        "description":"€219.00",
+        "subtitle":"€219.00",
         "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress2.jpg",
         "buttons": [
             {
@@ -66,7 +66,7 @@ exports.sendImages = response => {
     });
     elements.push({
         "title": "Peony Print Pleat Detail Dress",
-        "description":"€195.00",
+        "subtitle":"€195.00",
         "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress3.jpg",
         "buttons": [
             {
@@ -93,7 +93,7 @@ exports.dress1 = response => {
 
     elements.push({
         "title": "Capri Print Silk Bodycon",
-        "description":"€219.00",
+        "subtitle":"€219.00",
         "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress1.jpg"
     });
     return {
@@ -113,7 +113,7 @@ exports.dress2 = response => {
 
     elements.push({
         "title": "Palmyra Print Silk Bodycon",
-        "description":"€219.00",
+        "subtitle":"€219.00",
         "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress2.jpg"
     });
     return {
@@ -128,12 +128,12 @@ exports.dress2 = response => {
 };
 
 exports.dress3 = response => {
-    console.log('In dress1: ', response);
+    console.log('In dress3: ', response);
     let elements = [];
 
     elements.push({
         "title": "Peony Print Pleat Detail Dress",
-        "description":"€195.00",
+        "subtitle":"€195.00",
         "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress3.jpg"
     });
     return {

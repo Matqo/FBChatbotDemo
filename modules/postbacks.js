@@ -8,7 +8,7 @@ exports.exchange = (sender, values) => {
     console.log('exchange');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: 'OK, that is great Yasmin, lets see if we can work the Exchange here for you?'}, sender);
+        messenger.send({text: 'OK, that is great ${response.first_name}, lets see if we can work the Exchange here for you?'}, sender);
         setTimeout(function(){
             messenger.send(formatter.sendImages(response), sender);
         },500);
