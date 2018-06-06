@@ -15,11 +15,6 @@ exports.sendButtons = response => {
         "title":"Return for Refund"
     });
     elements.push({
-        "type":"web_url",
-        "url":"https://www.messenger.com",
-        "title":"In Store Credit"
-    });
-    elements.push({
         "type":"postback",
         "title":"Exchange",
         "payload":"exchange"
