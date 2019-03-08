@@ -57,6 +57,15 @@ exports.map = (sender, values) => {
         //messenger.send(formatter.question3(response), sender);
     });
 };
+
+exports.sendMap = (sender, values) => {
+    console.log('map');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.sendMap(response), sender);
+    });
+};
+
 exports.bookingEdit = (sender, values) => {
     console.log('bookingEdit');
     console.log('values: ', values);
