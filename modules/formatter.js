@@ -59,6 +59,9 @@ exports.sendImage = response => {
             }
         }
     };
+    setTimeout(function(){
+            messenger.send({text: `${response.first_name} because your order is not yet picked, we can change the delivery if needed.  This can be the date of delivery or changing to in store collect.  What would you like to do?`}, sender);  
+        },500);
 };
 
 exports.sendImages = response => {
