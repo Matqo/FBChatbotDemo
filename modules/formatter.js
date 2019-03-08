@@ -47,7 +47,7 @@ exports.sendImage = response => {
 
     elements.push({
         "title": "PREDATOR 19.3 FIRM GROUND BOOTS",
-        "subtitle": "£74.95 <br/> Test",
+        "subtitle": "£74.95 | Size: 11 | Status: Not yet Picked",
         "image_url": "https://i.imgur.com/Liee3W0.png"
     });
     return {
