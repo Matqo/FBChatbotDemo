@@ -20,9 +20,9 @@ elements.push({
     "title":"Exchange"
 });*/
 elements.push({
-    "type":"web_url",
-    "url":"https://www.messenger.com",
-    "title":"Complete the Look"
+    "type":"postback",
+    "title":"Complete the Look",
+    "payload":"compLook"
 });
 elements.push({
     "type":"web_url",
@@ -133,7 +133,7 @@ let elements = [];
 elements.push({
     "title": "Capri Print Silk Bodycon",
     "subtitle":"£219.00",
-    "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress1.jpg",
+    "image_url": "https://i.imgur.com/ogyuoB3.jpg",
     "buttons": [
         {
             "type": "postback",
@@ -145,7 +145,7 @@ elements.push({
 elements.push({
     "title": "Palmyra Print Silk Bodycon",
     "subtitle":"£219.00",
-    "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress2.jpg",
+    "image_url": "https://i.imgur.com/KgRI5bg.jpg",
     "buttons": [
         {
             "type": "postback",
@@ -157,7 +157,7 @@ elements.push({
 elements.push({
     "title": "Peony Print Pleat Detail Dress",
     "subtitle":"£195.00",
-    "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress3.jpg",
+    "image_url": "https://i.imgur.com/FtKiHr6.png",
     "buttons": [
         {
             "type": "postback",

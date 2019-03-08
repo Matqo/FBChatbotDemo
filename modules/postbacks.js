@@ -50,6 +50,21 @@ exports.selectDress = (sender, values) => {
         
     });
 };
+
+exports.compLook = (sender, values) => {
+    console.log('exchange');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `OK, that is great ${response.first_name}, let's find that Order?`}, sender);
+        setTimeout(function(){
+                messenger.send({text: `Based on your purchase PREDATOR 19.3 FIRM GROUND BOOTS we would recommend the following items`}, sender);
+            },500);
+        setTimeout(function(){
+            messenger.send(formatter.sendImages(response), sender);  
+        },1000);
+    });
+};
+
 exports.map = (sender, values) => {
     console.log('map');
     console.log('values: ', values);
@@ -69,13 +84,9 @@ exports.sendMap = (sender, values) => {
         setTimeout(function(){
             messenger.send(formatter.sendMap(response), sender);
         },1000);
-
-        setTimeout(function(){
-            messenger.send({text: `Is this the Store you wish to pick up from?`}, sender);
-        },1500);
         setTimeout(function(){
             messenger.send(formatter.sendQuestion(response), sender);
-        },2000);
+        },1500);
     });
 };
 
@@ -173,6 +184,11 @@ exports.yes = (sender) => {
         setTimeout(function(){
             messenger.send({text: `Is there anything else we can help you with today ${response.first_name}?`}, sender);  
         },500);
+        
+        setTimeout(function(){
+            messenger.send(formatter.sendButtons(response), sender);
+        },1000);
+
 
     });
 };
