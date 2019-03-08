@@ -20,7 +20,7 @@ exports.start = (sender) => {
 exports.start1 = (sender) => {
     console.log('start1');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Thank you ${response.first_name}, I can help track your item.  Please see some options below.  If one of these options doesn't work for you, please select Transfer to an Agents`}, sender);
+        messenger.send({text: `Thank you ${response.first_name}, I can help track your item.  Please see some options below.  If one of these options doesn't work for you, please select Transfer to an Agent`}, sender);
         setTimeout(function(){
             //messenger.send({text: `Your Options are as follows`}, sender);
             messenger.send(formatter.sendButtons(response), sender);
