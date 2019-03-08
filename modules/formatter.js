@@ -22,11 +22,6 @@ exports.sendButtons = response => {
     elements.push({
         "type":"web_url",
         "url":"https://www.messenger.com",
-        "title":"Test Button"
-    });
-    elements.push({
-        "type":"web_url",
-        "url":"https://www.messenger.com",
         "title":"Complete the Look"
     });
     elements.push({
