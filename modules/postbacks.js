@@ -69,10 +69,13 @@ exports.sendMap = (sender, values) => {
         setTimeout(function(){
             messenger.send(formatter.sendMap(response), sender);
         },1000);
-        
+
         setTimeout(function(){
             messenger.send({text: `Is this the Store you wish to pick up from?`}, sender);
         },1500);
+        setTimeout(function(){
+            messenger.send(formatter.sendQuestion(response), sender);
+        },2000);
     });
 };
 
