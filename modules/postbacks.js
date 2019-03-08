@@ -44,8 +44,11 @@ exports.selectDress = (sender, values) => {
         else if(values[0] == 'dress3'){
             messenger.send(formatter.dress3(values), sender);
             setTimeout(function(){
-                messenger.send({text: `Is there anything else that we can do for you today ${response.first_name}?`}, sender);
+                messenger.send({text: `That is a great Choice, ${response.first_name}.  I have added these to your order which you can pick up in store!`}, sender);
             },500);
+            setTimeout(function(){
+                messenger.send({text: `Is there anything else I can help you with today ${response.first_name}?`}, sender);
+            },1000);
         }
         
     });

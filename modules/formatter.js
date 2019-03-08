@@ -131,8 +131,8 @@ console.log('In sendImages: ', response);
 let elements = [];
 
 elements.push({
-    "title": "Capri Print Silk Bodycon",
-    "subtitle":"£219.00",
+    "title": "Adidas Continental 80's White Grey Core Black Pink Gum Tfl",
+    "subtitle":"£74.99",
     "image_url": "https://i.imgur.com/ogyuoB3.jpg",
     "buttons": [
         {
@@ -143,8 +143,8 @@ elements.push({
     ]
 });
 elements.push({
-    "title": "Palmyra Print Silk Bodycon",
-    "subtitle":"£219.00",
+    "title": "Adidas Deerupt Trainers",
+    "subtitle":"£79.99",
     "image_url": "https://i.imgur.com/KgRI5bg.jpg",
     "buttons": [
         {
@@ -155,8 +155,8 @@ elements.push({
     ]
 });
 elements.push({
-    "title": "Peony Print Pleat Detail Dress",
-    "subtitle":"£195.00",
+    "title": "Adidas Stan Smith Trainers Core White Dark Blue",
+    "subtitle":"£74.99",
     "image_url": "https://i.imgur.com/FtKiHr6.png",
     "buttons": [
         {
@@ -184,7 +184,7 @@ let elements = [];
 elements.push({
     "title": "Capri Print Silk Bodycon",
     "subtitle":"£219.00",
-    "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress1.jpg"
+    "image_url": "https://i.imgur.com/ogyuoB3.jpg"
 });
 return {
     "attachment": {
@@ -204,7 +204,7 @@ let elements = [];
 elements.push({
     "title": "Palmyra Print Silk Bodycon",
     "subtitle":"£219.00",
-    "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress2.jpg"
+    "image_url": "https://i.imgur.com/KgRI5bg.jpg"
 });
 return {
     "attachment": {
@@ -222,9 +222,9 @@ console.log('In dress3: ', response);
 let elements = [];
 
 elements.push({
-    "title": "Peony Print Pleat Detail Dress",
-    "subtitle":"£195.00",
-    "image_url": "https://phil-salesforce-bot.herokuapp.com/images?dress3.jpg"
+    "title": "Adidas Stan Smith Trainers Core White Dark Blue",
+    "subtitle":"£74.99",
+    "image_url": "https://i.imgur.com/FtKiHr6.png"
 });
 return {
     "attachment": {
