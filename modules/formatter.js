@@ -50,9 +50,6 @@ exports.sendImage = response => {
         "subtitle": "£74.95 | Size: 11 | Status: Not yet Picked",
         "image_url": "https://i.imgur.com/Liee3W0.png"
     });
-    setTimeout(function(){
-            messenger.send({text: `${response.first_name} because your order is not yet picked, we can change the delivery if needed.  This can be the date of delivery or changing to in store collect.  What would you like to do?`}, sender);  
-        },500);
     return {
         "attachment": {
             "type": "template",
