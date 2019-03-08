@@ -62,7 +62,17 @@ exports.sendMap = (sender, values) => {
     console.log('map');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.sendMap(response), sender);
+        setTimeout(function(){
+            messenger.send({text: `Looking at your preferences, your favourite pick up preference store is OFFICE, 100 Commercial St, London E1 6LZ, UK`}, sender);
+        },500);
+
+        setTimeout(function(){
+            messenger.send(formatter.sendMap(response), sender);
+        },1000);
+        
+        setTimeout(function(){
+            messenger.send({text: `Is this the Store you wish to pick up from?`}, sender);
+        },1500);
     });
 };
 

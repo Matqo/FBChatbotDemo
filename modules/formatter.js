@@ -78,6 +78,33 @@ return {
 };
 };
 
+exports.sendButtons3 = response => {
+console.log('In sendButtons: ', response);
+let elements = [];
+
+elements.push({
+    "type":"postback",
+    "title":"Yes",
+    "payload":"yes"
+});
+elements.push({
+    "type":"web_url",
+    "url":"https://www.messenger.com",
+    "title":"No"
+});
+
+return {
+    "attachment": {
+        "type": "template",
+        "payload": {
+            "template_type": "button",
+            "text": "Your Options are as follows",
+            "buttons": elements
+        }
+    }
+};
+};
+
 
 exports.sendImage = response => {
 console.log('In sendMap: ', response);
@@ -216,7 +243,7 @@ let elements = [];
 
 elements.push({
     "title": "Store Location",
-    "image_url": "https://phil-salesforce-bot.herokuapp.com/images?map.png"
+    "image_url": "https://i.imgur.com/BhrPPD7.png"
 });
 return {
     "attachment": {
