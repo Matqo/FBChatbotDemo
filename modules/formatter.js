@@ -10,13 +10,13 @@ exports.sendButtons = response => {
     let elements = [];
 
     elements.push({
-        "title":"Track my Order",
         "type":"postback",
+        "title":"Track my Order",
         "payload":"exchange"
     });
     elements.push({
-        "title":"Exchange",
         "type":"web_url",
+        "title":"Exchange",
         "url":"https://www.messenger.com"
     });
     elements.push({
