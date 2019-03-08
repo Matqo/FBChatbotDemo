@@ -16,8 +16,8 @@ exports.sendButtons = response => {
     });
     elements.push({
         "type":"web_url",
-        "title":"Exchange",
-        "url":"https://www.messenger.com"
+        "url":"https://www.messenger.com",
+        "title":"Exchange"
     });
     elements.push({
         "type":"web_url",
