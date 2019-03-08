@@ -4,14 +4,18 @@ let messenger = require('./messenger'),
     formatter = require('./formatter'),
     nforce = require('nforce');
 
+
 exports.exchange = (sender, values) => {
     console.log('exchange');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `OK, that is great ${response.first_name}, lets see if we can work the Exchange here for you?`}, sender);
+        messenger.send({text: `OK, that is great ${response.first_name}, let's find that Order?`}, sender);
         setTimeout(function(){
-            messenger.send(formatter.sendImages(response), sender);
+            messenger.send({text: `Here is what I found ${response.first_name}`}, sender);  
         },500);
+        setTimeout(function(){
+            messenger.send(formatter.sendImage(response), sender);
+        },1000);
     });
 };
 

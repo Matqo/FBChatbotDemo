@@ -10,14 +10,19 @@ exports.sendButtons = response => {
     let elements = [];
 
     elements.push({
-        "type":"web_url",
-        "url":"https://www.messenger.com",
-        "title":"Return for Refund"
+        "title":"Track my Order",
+        "type":"postback",
+        "payload":"exchange"
     });
     elements.push({
-        "type":"postback",
         "title":"Exchange",
-        "payload":"exchange"
+        "type":"web_url",
+        "url":"https://www.messenger.com"
+    });
+    elements.push({
+        "type":"web_url",
+        "url":"https://www.messenger.com",
+        "title":"Complete the Look"
     });
     elements.push({
         "type":"web_url",
@@ -31,6 +36,26 @@ exports.sendButtons = response => {
                 "template_type": "button",
                 "text": "Your Options are as follows",
                 "buttons": elements
+            }
+        }
+    };
+};
+
+exports.sendImage = response => {
+    console.log('In sendMap: ', response);
+    let elements = [];
+
+    elements.push({
+        "title": "PREDATOR 19.3 FIRM GROUND BOOTS",
+        "subtitle": "£74.95",
+        "image_url": "https://phil-salesforce-bot.herokuapp.com/images?map.png"
+    });
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
             }
         }
     };

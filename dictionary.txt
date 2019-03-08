@@ -1,5 +1,5 @@
 start help
 test test
-start1 I bought the
+start1 I bought
 start2 Yes
 start3 No
