@@ -14,6 +14,16 @@ exports.sendButtons = response => {
         "title":"Track my Order",
         "payload":"exchange"
     });
+    /*elements.push({
+        "type":"web_url",
+        "url":"https://www.messenger.com",
+        "title":"Exchange"
+    });*/
+    elements.push({
+        "type":"web_url",
+        "url":"https://www.messenger.com",
+        "title":"Test Button"
+    });
     elements.push({
         "type":"web_url",
         "url":"https://www.messenger.com",
@@ -42,8 +52,8 @@ exports.sendImage = response => {
 
     elements.push({
         "title": "PREDATOR 19.3 FIRM GROUND BOOTS",
-        "subtitle": "£74.95",
-        "image_url": "https://phil-salesforce-bot.herokuapp.com/images?map.png"
+        "subtitle": "£74.95 <br/> Test",
+        "image_url": "https://i.imgur.com/Liee3W0.png"
     });
     return {
         "attachment": {
