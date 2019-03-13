@@ -19,6 +19,10 @@ app.set('port', process.env.PORT || 5000);
 
 app.use(bodyParser.json());
 
+app.get("/", function(req, res){
+    res.render("index");
+})
+
 app.get('/images', (req, res) => {
     console.log('req.originalUrl: ', req.originalUrl);
     var urlParts = req.originalUrl.split("?");
