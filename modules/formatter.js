@@ -64,7 +64,7 @@ elements.push({
 elements.push({
     "type":"web_url",
     "url":"https://www.messenger.com",
-    "title":"Do Nothing"
+    "title":"Transfer to an Agent"
 });
 return {
     "attachment": {
@@ -111,9 +111,9 @@ console.log('In sendMap: ', response);
 let elements = [];
 
 elements.push({
-    "title": "PREDATOR 19.3 FIRM GROUND BOOTS",
-    "subtitle": "Price: £74.95 | Size: 11 | Status: Not yet Picked",
-    "image_url": "https://i.imgur.com/Liee3W0.png"
+    "title": "Adidas Nmd R1 Trainers Core Black Lush Red",
+    "subtitle": "Price: £130.00 | Size: 11 | Status: Not yet Picked",
+    "image_url": "https://i.imgur.com/YMQIjVi.png"
 });
 return {
     "attachment": {

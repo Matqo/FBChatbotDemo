@@ -13,7 +13,7 @@ exports.test = (sender) => {
 exports.start = (sender) => {
     console.log('start');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Hi ${response.first_name}, this is your Office Chatbot Agent, how can I help you today?`}, sender);
+        messenger.send({text: `Hi ${response.first_name}, this is your Office Virtual Agent, how can I help you today?`}, sender);
     });
 }; 
 

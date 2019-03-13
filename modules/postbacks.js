@@ -183,7 +183,7 @@ exports.getStarted = (sender, values) => {
 exports.yes = (sender) => {
     console.log('yes');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Can you bring the return item with you and speak to any member of our Team in store with REF: 287348870-34`}, sender);
+        messenger.send({text: `${response.first_name}, that is now changed to in store collection. You can speak to any member of our Team in store with *REF: 287348870-34*`}, sender);
         setTimeout(function(){
             messenger.send({text: `Is there anything else we can help you with today ${response.first_name}?`}, sender);  
         },500);
