@@ -58,9 +58,8 @@ exports.compLook = (sender, values) => {
     console.log('exchange');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `OK, that is great ${response.first_name}, let's find that Order?`}, sender);
         setTimeout(function(){
-                messenger.send({text: `Based on your purchase PREDATOR 19.3 FIRM GROUND BOOTS we would recommend the following items`}, sender);
+                messenger.send({text: `Based on your purchase Adidas Nmd R1 Trainers Core Black Lush Red we would recommend the following items`}, sender);
             },500);
         setTimeout(function(){
             messenger.send(formatter.sendImages(response), sender);  
