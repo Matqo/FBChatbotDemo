@@ -284,7 +284,7 @@ return {
 
 
 exports.sendFeedback = response => {
-console.log('In sendQuestion: ', response);
+//console.log('In sendQuestion: ', response);
 
 return {
     "attachment": {
