@@ -62,4 +62,7 @@ exports.start3 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         messenger.send({text: `You are very welcome ${response.first_name}, have a great day!`}, sender);
     });
+    setTimeout(function(){
+            messenger.send(formatter.sendFeedback(response), sender);
+    },1000);
 };    
