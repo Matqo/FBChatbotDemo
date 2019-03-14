@@ -291,7 +291,7 @@ return {
         "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"Leave Feedback",
+        "text":"You are very welcome ${response.first_name}, have a great day!",
         "buttons":[
           {
             "type":"web_url",
