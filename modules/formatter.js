@@ -291,11 +291,11 @@ return {
         "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"You are very welcome ${response.first_name}, have a great day!",
         "buttons":[
           {
             "type":"web_url",
             "url":"https://sdo-demo-main-166ce2cf6b6-1692e92b661.secure.force.com/webview",
+              "messenger_extensions": "true",  
             "title":"Leave Feedback",
             "webview_height_ratio": "compact"
           }
