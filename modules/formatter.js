@@ -291,6 +291,7 @@ return {
         "type":"template",
       "payload":{
         "template_type":"button",
+        "text":"Leave Feedback",
         "buttons":[
           {
             "type":"web_url",
