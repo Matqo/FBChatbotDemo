@@ -284,15 +284,23 @@ return {
 
 
 exports.sendFeedback = response => {
-//console.log('In sendQuestion: ', response);
+console.log('In sendQuestion: ', response);
 
 return {
-    
-         "type":"web_url",
-  "url":"https://sdo-demo-main-166ce2cf6b6-1692e92b661.secure.force.com/webview",
-  "title":"Leave Feedback",
-  "webview_height_ratio": "compact",
-  "messenger_extensions": "false",  
-    
+    "attachment": {
+        "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"Leave Feedback",
+        "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://sdo-demo-main-166ce2cf6b6-1692e92b661.secure.force.com/webview",
+            "title":"Leave Feedback",
+            "webview_height_ratio": "compact"
+          }
+        ]
+      }
+    }
 };
 };
